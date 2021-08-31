@@ -1,0 +1,12 @@
+CACHE MANIFEST
+## v 1.0
+
+CACHE:
+js/index.js
+css/index.css
+
+NETWORK:
+*
+
+FALLBACK:
+/offline.html
