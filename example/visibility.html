@@ -26,8 +26,10 @@
       // console.log(document.hidden, document.visibilityState);
       if (document.hidden && document.visibilityState === 'hidden') {
         // 不可见
+        console.log('离开页面，播放暂停');
         video.pause();
       } else {
+        console.log('返回页面，播放继续');
         video.play();
       }
     })
