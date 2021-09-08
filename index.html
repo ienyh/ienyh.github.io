@@ -12,14 +12,35 @@
   <header><h1>index</h1></header>
   <div class="container">
     <div class="all">
-      <a href="./example/offline.html">offline</a>
+      <a draggable="false" href="./example/offline.html">offline</a>
       <a href="./res/terminal.png">terminal</a>
       <a href="./example/visibility.html">visibility</a>
+      <a href="./example/bluecar.html">blue car</a>
+      <a href="./example/IDB/IndexedDB.html">IndexedDB</a>
     </div>
     实现不使用 `border` 画出 1px 高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果。
     <div style="height:1px; overflow:hidden; background:red"></div>
     <div id="position">
       <button id="btn" onclick="position()">[API] getCurrentPosition</button>
+    </div>
+    <div class="inputContainer">
+      <div><code>input type="tel"</code> <input type="tel"></div>
+      <div><code>input type="time"</code> <input type="time"></div>
+      <div><code>input type="date"</code> <input type="date"></div>
+      <div><code>input type="month"</code> <input type="month"></div>
+      <div><code>input type="datetime"</code> <input type="datetime"></div>
+      <div><code>input type="datetime-local"</code> <input type="datetime-local"></div>
+      <div><code>input type="number"</code> <input type="number" step="1" max="100" min="0" value="60"></div>
+      <div><code>input type="email"</code> <input type="email" disabled></div>
+      <div><code>input type="color"</code> <input type="color"></div>
+      <div><code>input type="range"</code> <input type="range" step="1" max="100" min="0" value="80"></div>
+      <div><code>input type="checkbox"</code> <input type="checkbox" value="ch"> <span>选我 checkbox</span></div>
+      <div><code>input type="radio"</code> <input type="radio"> <span>选我 radio</span></div>
+      <div><code>input type="image"</code> <input type="image" src="./res/terminal.png" onclick="clickHandler()"></div>
+      <div><code>input type="search"</code> <input type="search" readonly placeholder="asd"></div>
+      <div><code>input type="button"</code> <input type="button" value="click" onclick="clickHandler()"></div>
+      <div><code>input type="file"</code> <input type="file" accept=".png"></div>
+      <div><code>input type="hidden"</code> <input type="hidden"></div>
     </div>
   </div>
   <footer>

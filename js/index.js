@@ -17,3 +17,7 @@ function position () {
   }
 }
 
+function clickHandler (e) {
+  console.log('clicked');
+}
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDB</title>
+</head>
+<body>
+  <script src="https://cdn.bootcdn.net/ajax/libs/dexie/3.2.0-beta-2/dexie.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/three.js/r128/three.js"></script>
+  <script>
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    var geometry = new THREE.BoxGeometry();
+    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    var cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    camera.position.z = 5;
+
+    var animate = function () {
+      requestAnimationFrame( animate );
+
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render( scene, camera );
+    };
+
+    animate();
+  </script>
+  <!-- <script type="module">
+    let db, objectStore;
+    const request = window.indexedDB.open('databaseName', '16');
+
+    request.onsuccess = e => { 
+      db = e.target.result;
+      // read(2);
+    };
+    request.onerror = () => { console.log('数据库打开失败'); };
+    request.onupgradeneeded = e => {
+      console.log(e.target)
+      const trans = e.target.transaction;
+      db = e.target.result;
+      if (!db.objectStoreNames.contains('objs')) {
+        objectStore = db.createObjectStore('objs', { keyPath: 'id' });
+        objectStore.createIndex('name', 'name', { unique: true });
+      }
+      console.log(db);
+      add(5, trans);
+    };
+
+    function add (id, trans) {
+      const req = trans
+        .objectStore('objs')
+        .add({ id, mesh: cube });
+
+      req.onsuccess = function (event) {
+        console.log('数据写入成功');
+      };
+
+      req.onerror = function (event) {
+        console.log('数据写入失败');
+      }
+    }
+
+    function read (id) {
+      var transaction = db.transaction(['objs']);
+      var objectStore = transaction.objectStore('objs');
+      var request = objectStore.get(id);
+
+      request.onerror = function (event) {
+        console.log('读取事务失败');
+      };
+
+      request.onsuccess = function (event) {
+        console.log(request.result);
+        // const mesh = request.result.mesh;
+        // mesh.position.set(3, 0, 0)
+        // scene.add(mesh)
+      };
+    }
+  </script> -->
+
+  <script>
+
+    // 创建名为 editor_database 的数据库
+    const db = new Dexie('editor_database')
+    // 这里可以定义版本号，后续修改表字段时可以增加版本号
+    db.version(1).stores({
+      // 创建 docUpdate 表，&表示 primaryKey（++表示自增字段）
+      friends: `&id, obj`
+    })
+    console.log(db);
+
+
+    db.friends.put({ id: 2, obj: cube })
+      .then (function () {
+        console.log(db.friends.get(2));
+      })
+
+  </script>
+</body>
+</html>
