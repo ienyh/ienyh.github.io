@@ -25,4 +25,4 @@
   ctx.fillStyle = 'rgb(38, 99, 200)';
   ctx.fill();
   ctx.closePath();
-})(window, document)
+})(window, document);

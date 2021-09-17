@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .inputContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
+
+    input {
+      margin-top: 10px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    }
+
+    code {
+      font-size: 15px;
+      line-height: inherit;
+      font-family: "hack", Verdana, Geneva, Tahoma, sans-serif;
+      background-color: #d9d9d9;
+      color: black;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="inputContainer">
+    <div><code>input type="tel"</code> <input type="tel"></div>
+    <div><code>input type="time"</code> <input type="time"></div>
+    <div><code>input type="date"</code> <input type="date"></div>
+    <div><code>input type="month"</code> <input type="month"></div>
+    <div><code>input type="datetime"</code> <input type="datetime"></div>
+    <div><code>input type="datetime-local"</code> <input type="datetime-local"></div>
+    <div><code>input type="number"</code> <input type="number" step="1" max="100" min="0" value="60"></div>
+    <div><code>input type="email"</code> <input type="email" disabled></div>
+    <div><code>input type="color"</code> <input type="color"></div>
+    <div><code>input type="range"</code> <input type="range" step="1" max="100" min="0" value="80"></div>
+    <div><code>input type="checkbox"</code> <input type="checkbox" value="ch"> <span>选我 checkbox</span></div>
+    <div><code>input type="radio"</code> <input type="radio"> <span>选我 radio</span></div>
+    <div><code>input type="image"</code> <input type="image" src="./res/terminal.png" onclick="clickHandler()"></div>
+    <div><code>input type="search"</code> <input type="search" readonly placeholder="asd"></div>
+    <div><code>input type="button"</code> <input type="button" value="click" onclick="clickHandler()"></div>
+    <div><code>input type="file"</code> <input type="file" accept=".png"></div>
+    <div><code>input type="hidden"</code> <input type="hidden"></div>
+  </div>
+</body>
+</html>

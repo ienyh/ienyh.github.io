@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas img</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500">抱歉，您的浏览器不支持 canvas，请使用其他浏览器</canvas>
+  <script>
+    ; (() => {
+      const ctx = document.querySelector('#canvas').getContext('2d');
+      const img = new Image();
+      img.addEventListener('load', () => {
+        ctx.drawImage(img, 0, 0);
+      })
+      img.src = "https://developer.mozilla.org/@api/deki/files/57/=Canvas_art_gallery.jpg";
+    })();
+
+
+  </script>
+</body>
+</html>
