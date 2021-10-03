@@ -12,18 +12,19 @@
   <script type="module">
     import EventEmitter from './index.js';
 
-    EventEmitter.on('add', () => {
-      console.log('on add')
+    const a = 1449;
+    EventEmitter.once('add', (e) => {
+      console.log(`on add${a}`);
+      console.log(e);
     })
   </script>
 
   <script type="module">
     import EventEmitter from './index.js';
 
-    new EventEmitter();
-
     function publish () {
       EventEmitter.emit('add');
+      console.log();
     }
 
     document.querySelector('#btn').addEventListener('click', publish);
