@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPA</title>
+  <link rel="stylesheet" href="../../css/index.css">
+  <style>
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid black;
+      flex-wrap: wrap;
+    }
+
+    .content {
+      margin: 10px auto;
+      background-color: #fff;
+      padding: 10px;
+      width: 50vw;
+      border-radius: 4px;
+      box-shadow: 2px 4px 12px -4px rgba(0, 0, 0, 0.4);
+    }
+
+    .content h2 {
+      font-weight: bold;
+      color: sandybrown;
+    }
+  </style>
+</head>
+<body>
+  <ul class="container">
+    <li>hashchange</li>
+    <li><a href="/example/spa/index-hash.html#/pages-1">pages-1</a></li>
+    <li><a href="/example/spa/index-hash.html#/pages-2">pages-2</a></li>
+    <li><a href="/example/spa/index-hash.html#/pages-3">pages-3</a></li>
+    <li><a href="/example/spa/index-hash.html#/pages-4">pages-4</a></li>
+  </ul>
+
+  <div class="content">
+    <h2>content</h2>
+  </div>
+
+  <script>
+    ; (() => {
+      const content = document.querySelector('.content');
+
+      window.addEventListener('hashchange', (e) => {
+        content.innerHTML = `<h2>${window.location.hash}</h2>`;
+      });
+
+    })();
+  </script>
+</body>
+</html>
