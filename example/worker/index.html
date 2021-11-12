@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>worker</h2>
+  <script>
+    ; (() => {
+      console.log(location.href);
+      const worker = new Worker(location.href + 'worker1.js', { name: 'worker-1' });
+
+      worker.addEventListener('error', errorHandler);
+      worker.addEventListener('message', messageHandler);
+
+      function errorHandler (e) {
+
+      }
+
+      function messageHandler (e) {
+
+      }
+    })();
+  </script>
+</body>
+</html>
